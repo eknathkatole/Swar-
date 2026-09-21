@@ -1,0 +1,753 @@
+/* ==========================================================================
+   SWAR SWAMI GURUKUL — OFFICIAL WEBSITE STYLESHEET
+   Responsive, High-DPI Mobile & Desktop Optimization
+   ========================================================================== */
+
+:root {
+  --bg-main: #fbf7ef;
+  --bg-white: #ffffff;
+  --bg-sand: #f4ecdc;
+  --bg-sand-light: #faf5ea;
+  --navy-deep: #080d28;
+  --navy-card: #0d1338;
+  --ink: #1b1713;
+  --ink-light: #3e3831;
+  --muted: #6e675d;
+  --gold: #c69f4f;
+  --gold-bright: #e7bf63;
+  --gold-dark: #916f23;
+  --gold-glow: rgba(198, 159, 79, 0.28);
+  --terracotta: #a6481c;
+  --terracotta-hover: #8f3c14;
+  --terracotta-light: #fbeee7;
+  --line: rgba(198, 159, 79, 0.28);
+  --line-light: rgba(27, 23, 19, 0.08);
+  --shadow-sm: 0 4px 15px rgba(24, 18, 12, 0.06);
+  --shadow-md: 0 10px 30px rgba(24, 18, 12, 0.10);
+  --shadow-lg: 0 18px 45px rgba(24, 18, 12, 0.14);
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --script: "Playfair Display", Georgia, serif;
+  --dev: "Noto Serif Devanagari", serif;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+  --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  scroll-padding-top: 75px;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--ink);
+  font-family: var(--sans);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, picture {
+  max-width: 100%;
+  display: block;
+  height: auto;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  transition: var(--transition);
+}
+
+.container {
+  width: min(1240px, 100% - 40px);
+  margin-inline: auto;
+}
+
+@media (max-width: 640px) {
+  .container {
+    width: min(100% - 24px, 100%);
+  }
+}
+
+/* ==========================================================================
+   HEADER / NAVBAR
+   ========================================================================== */
+#main-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(251, 247, 239, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+  transition: var(--transition);
+}
+
+#main-header.scrolled {
+  background: rgba(251, 247, 239, 0.98);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-om {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-full);
+  background: var(--navy-deep);
+  color: var(--gold-bright);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-family: var(--dev);
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(8, 13, 40, 0.2);
+}
+
+.brand-text-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-family: var(--serif);
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--navy-deep);
+  line-height: 1.15;
+}
+
+.brand-sub {
+  font-size: 0.75rem;
+  color: var(--gold-dark);
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.navlinks {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.navlinks a:not(.nav-cta-btn) {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink-light);
+  position: relative;
+  padding: 4px 0;
+}
+
+.navlinks a:not(.nav-cta-btn)::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--gold);
+  transition: width 0.25s ease;
+}
+
+.navlinks a:not(.nav-cta-btn):hover {
+  color: var(--terracotta);
+}
+
+.navlinks a:not(.nav-cta-btn):hover::after {
+  width: 100%;
+}
+
+.nav-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--terracotta);
+  color: var(--bg-white) !important;
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  font-size: 0.88rem;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(166, 72, 28, 0.25);
+}
+
+.nav-cta-btn:hover {
+  background: var(--terracotta-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(166, 72, 28, 0.35);
+}
+
+.mobile-menu-btn {
+  display: none;
+  font-size: 1.7rem;
+  color: var(--navy-deep);
+  padding: 6px 10px;
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+.hero-section {
+  width: 100%;
+  background: var(--bg-sand);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-picture-wrap {
+  width: 100%;
+  max-width: 1980px;
+  margin-inline: auto;
+  position: relative;
+}
+
+.hero-picture {
+  display: block;
+  width: 100%;
+}
+
+.hero-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.hero-mobile-action-bar {
+  display: none;
+  padding: 16px 20px 24px;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(8, 13, 40, 0.95), var(--navy-deep));
+}
+
+.btn-hero-wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+  color: var(--navy-deep);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 13px 26px;
+  border-radius: var(--radius-full);
+  width: 100%;
+  max-width: 320px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 768px) {
+  .hero-mobile-action-bar {
+    display: block;
+  }
+}
+
+/* ==========================================================================
+   SECTION COMMON HEADER BADGES & TITLES
+   ========================================================================== */
+.content-banner-section {
+  padding: 65px 0;
+  position: relative;
+}
+
+.bg-sand-tint {
+  background-color: var(--bg-sand-light);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.section-badge-wrap {
+  text-align: center;
+  max-width: 700px;
+  margin-inline: auto;
+  margin-bottom: 30px;
+}
+
+.lotus-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.lotus-icon svg {
+  width: 28px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.section-tag {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 6px;
+}
+
+.section-main-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.8vw, 2.75rem);
+  color: var(--navy-deep);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--muted);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   BANNER CARD WRAPPER & HIGH-RES DISPLAY
+   ========================================================================== */
+.banner-card-wrap {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--line);
+  background: var(--bg-white);
+  transition: var(--transition);
+}
+
+.banner-card-wrap:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+  border-color: var(--gold);
+}
+
+.section-banner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.banner-mobile-cta {
+  display: none;
+  background: var(--bg-white);
+  padding: 14px 20px;
+  border-top: 1px solid var(--line-light);
+  text-align: center;
+}
+
+.btn-banner-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--terracotta);
+  color: var(--bg-white);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 11px 22px;
+  border-radius: var(--radius-full);
+  width: 100%;
+  max-width: 320px;
+  box-shadow: 0 4px 14px rgba(166, 72, 28, 0.2);
+}
+
+.btn-banner-action:hover {
+  background: var(--terracotta-hover);
+}
+
+/* ==========================================================================
+   OFFERINGS STACK (SEQUENTIAL ONE AFTER ANOTHER)
+   ========================================================================== */
+.offerings-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.offering-item {
+  scroll-margin-top: 90px;
+}
+
+/* ==========================================================================
+   WATCH & FOLLOW SECTION
+   ========================================================================== */
+.watch-follow-section {
+  padding: 65px 0;
+}
+
+.social-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 10px;
+}
+
+.social-card {
+  background: var(--bg-white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.social-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--gold);
+}
+
+.social-icon-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.yt-icon {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.ig-icon {
+  background: #fce7f3;
+  color: #db2777;
+}
+
+.wa-icon {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.social-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.social-name {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--navy-deep);
+  line-height: 1.2;
+}
+
+.social-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.social-arrow {
+  color: var(--gold-dark);
+  font-size: 1.3rem;
+  transition: transform 0.2s ease;
+}
+
+.social-card:hover .social-arrow {
+  transform: translateX(5px);
+  color: var(--terracotta);
+}
+
+/* ==========================================================================
+   CALL TO ACTION BANNER (DEEP NAVY & GOLD)
+   ========================================================================== */
+.cta-banner-section {
+  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy-card) 100%);
+  color: var(--bg-white);
+  padding: 70px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-treble-decor {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24rem;
+  color: rgba(231, 191, 99, 0.04);
+  font-family: var(--script);
+  pointer-events: none;
+  line-height: 1;
+}
+
+.cta-container {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+}
+
+.cta-container h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 2.9rem);
+  font-weight: 700;
+  color: var(--bg-white);
+  margin: 10px 0 8px;
+}
+
+.cta-pillars-text {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.82);
+  margin-bottom: 28px;
+  letter-spacing: 0.5px;
+}
+
+.btn-cta-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+  color: var(--navy-deep);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 13px 32px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  transition: var(--transition);
+}
+
+.btn-cta-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(231, 191, 99, 0.4);
+}
+
+.cta-mantra-blessing {
+  margin-top: 24px;
+  font-family: var(--dev);
+  font-size: 1.15rem;
+  color: var(--gold-bright);
+  letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+footer {
+  background: #050819;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 50px 0 25px;
+  border-top: 1px solid rgba(198, 159, 79, 0.2);
+}
+
+.footer-flex {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding-bottom: 35px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-brand-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.footer-om {
+  color: var(--gold-bright);
+  font-family: var(--dev);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.footer-brand h3 {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  color: var(--bg-white);
+}
+
+.footer-brand p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.footer-mantra-sm {
+  margin-top: 8px;
+  font-family: var(--dev);
+  color: var(--gold);
+  font-size: 0.95rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.footer-links a {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.footer-links a:hover {
+  color: var(--gold-bright);
+}
+
+.footer-bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.5);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-blessing-text {
+  font-family: var(--dev);
+  color: var(--gold);
+}
+
+/* ==========================================================================
+   FLOATING WHATSAPP BUTTON
+   ========================================================================== */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  background: #25D366;
+  color: #ffffff;
+  padding: 12px 18px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45);
+  font-size: 0.92rem;
+  font-weight: 700;
+  transition: var(--transition);
+}
+
+.floating-whatsapp:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
+  color: #ffffff;
+}
+
+.wa-float-icon {
+  font-size: 1.25rem;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN & MOBILE OPTIMIZATIONS
+   ========================================================================== */
+@media (max-width: 900px) {
+  .social-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navlinks {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: rgba(251, 247, 239, 0.98);
+    backdrop-filter: blur(16px);
+    flex-direction: column;
+    padding: 24px;
+    gap: 18px;
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  }
+
+  .navlinks.mobile-open {
+    display: flex;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .content-banner-section {
+    padding: 45px 0;
+  }
+
+  .banner-card-wrap {
+    border-radius: var(--radius-md);
+  }
+
+  .banner-mobile-cta {
+    display: block;
+  }
+
+  .offerings-stack {
+    gap: 26px;
+  }
+
+  .footer-flex {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footer-bottom-bar {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .floating-whatsapp .wa-float-text {
+    display: none;
+  }
+
+  .floating-whatsapp {
+    padding: 14px;
+    border-radius: var(--radius-full);
+    bottom: 20px;
+    right: 20px;
+  }
+}
